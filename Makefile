@@ -22,20 +22,24 @@
 TARGET     = demo
 
 # Take a look into $(CUBE_DIR)/Drivers/BSP for available BSPs
-BOARD      = STM32F4-Discovery
-BSP_BASE   = stm32f4_discovery
+BOARD      = STM32F042K6-Nucleo
+BOARD_UC   = STM32F042K6_NUCLEO
+BOARD_MC   = STM32F0xx_Nucleo_32
 
-OCDFLAGS   = -f board/stm32f4discovery.cfg
+OCDFLAGS   = -f board/st_nucleo_f0.cfg
 GDBFLAGS   =
 
 #EXAMPLE   = Templates
-EXAMPLE    = Examples/GPIO/GPIO_EXTI
+EXAMPLE    = Examples/GPIO/GPIO_IOToggle
 
 # MCU family and type in various capitalizations o_O
-MCU_FAMILY = stm32f4xx
-MCU_LC     = stm32f401xc
-MCU_MC     = STM32F407xx
-MCU_UC     = STM32F407VG
+MCU_FAMILY = stm32f0xx
+MCU_FAMILY_UC = STM32F0xx
+MCU_LC     = stm32f042x6
+MCU_MC     = STM32F042x6
+MCU_UC     = STM32F042K6Tx
+
+ARM_CORE	 = cortex-m0
 
 # Your C files from the /src directory
 SRCS       = main.c
@@ -60,7 +64,7 @@ CMSIS_DIR  = $(CUBE_DIR)/Drivers/CMSIS
 
 DEV_DIR    = $(CMSIS_DIR)/Device/ST/$(MCU_FAMILY_UC)
 
-CUBE_URL   = http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef4.zip
+CUBE_URL   = http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef0.zip
 
 # that's it, no need to change anything below this line!
 
