@@ -94,8 +94,7 @@ LIBS       = -L$(CMSIS_DIR)/Lib
 
 # Compiler flags
 CFLAGS     = -Wall -g -std=c99 -Os
-CFLAGS    += -mlittle-endian -mcpu=cortex-m4 -march=armv7e-m -mthumb
-CFLAGS    += -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+CFLAGS    += -mlittle-endian -mcpu=$(ARM_CORE) -mthumb
 CFLAGS    += -ffunction-sections -fdata-sections
 CFLAGS    += $(INCS) $(DEFS)
 
