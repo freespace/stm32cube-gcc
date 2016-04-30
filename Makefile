@@ -40,21 +40,25 @@ MCU_UC     = STM32F407VG
 # Your C files from the /src directory
 SRCS       = main.c
 SRCS      += system_$(MCU_FAMILY).c
-SRCS      += stm32f4xx_it.c
+SRCS      += $(MCU_FAMILY)_it.c
 
 # Basic HAL libraries
-SRCS      += stm32f4xx_hal_rcc.c stm32f4xx_hal_rcc_ex.c stm32f4xx_hal.c stm32f4xx_hal_cortex.c stm32f4xx_hal_gpio.c $(BSP_BASE).c
+SRCS      += $(MCU_FAMILY)_hal_rcc.c
+SRCS 		  += $(MCU_FAMILY)_hal_rcc_ex.c
+SRCS      += $(MCU_FAMILY)_hal.c
+SRCS      += $(MCU_FAMILY)_hal_cortex.c
+SRCS      += $(MCU_FAMILY)_hal_gpio.c
 
 # Directories
 OCD_DIR    = /usr/share/openocd/scripts
 
 CUBE_DIR   = cube
 
-BSP_DIR    = $(CUBE_DIR)/Drivers/BSP/$(BOARD)
-HAL_DIR    = $(CUBE_DIR)/Drivers/STM32F4xx_HAL_Driver
+BSP_DIR    = $(CUBE_DIR)/Drivers/BSP/$(BOARD_MC)
+HAL_DIR    = $(CUBE_DIR)/Drivers/$(MCU_FAMILY_UC)_HAL_Driver
 CMSIS_DIR  = $(CUBE_DIR)/Drivers/CMSIS
 
-DEV_DIR    = $(CMSIS_DIR)/Device/ST/STM32F4xx
+DEV_DIR    = $(CMSIS_DIR)/Device/ST/$(MCU_FAMILY_UC)
 
 CUBE_URL   = http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef4.zip
 
