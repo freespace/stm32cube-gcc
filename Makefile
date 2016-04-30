@@ -149,7 +149,7 @@ openocd:
 	$(OCD) -s $(OCD_DIR) $(OCDFLAGS)
 
 program: all
-	$(OCD) -s $(OCD_DIR) $(OCDFLAGS) -c "program $(TARGET).elf verify reset"
+	$(OCD) -s $(OCD_DIR) $(OCDFLAGS) -c "program $(TARGET).elf verify reset exit"
 
 debug:
 	@if ! nc -z localhost 3333; then \
